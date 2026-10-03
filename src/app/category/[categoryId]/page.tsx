@@ -21,7 +21,7 @@ const CategoryNews = async({params}: {params:{categoryId: string}}) => {
             <h1 className="font-bold text-2xl border-b-2 border-red-700  py-2 mt-3">{data.title}</h1>
 
             <div className="grid grid-cols-3 gap-2 mt-4">
-                {categoryNews.map(news => <NewsCard key={news.id} news={news} />)}
+                {categoryNews.map((news:News) => <NewsCard key={news.id} news={news} />)}
             </div>
 
         </div>

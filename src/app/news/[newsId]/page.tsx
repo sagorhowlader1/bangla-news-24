@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 interface INews {
-    tags:string;
+    tags: string[]
     title: string
     text: string
     imageUrl: string
@@ -30,7 +30,7 @@ const NewsDetails = async({params}: {params: {newsId: string}}) => {
 
             <div className=" flex  mt-4 items-center gap-5">
                 {
-                    news.tags.map((tag:INews, index:number) => <p key={index}
+                    news.tags.map((tag:string, index:number) => <p key={index}
                     className="text-red-600 mx-4 border border-red-500 ">{tag}</p>)
                 }
             </div>
