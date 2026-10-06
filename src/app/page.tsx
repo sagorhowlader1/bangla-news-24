@@ -1,4 +1,3 @@
-import Footer from "./components/Footer";
 import MainNews from "./components/MainNews";
 import MostRead from "./components/MostRead";
 import NewsCard from "./components/NewsCard";
@@ -54,7 +53,7 @@ export default async function Home() {
           <MostRead />
         </div>
       </div>
-
+    
     </div>
   );
 }

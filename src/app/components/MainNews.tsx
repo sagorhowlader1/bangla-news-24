@@ -15,6 +15,10 @@ const MainNews = ({ news }: { news: News[] }) => {
     dateStyle: "full",
   });
 
+  const time = new Date().toLocaleTimeString("bn-BD", {
+    timeStyle: "short",
+  });
+
   const [firsNews, ...otherNews] = news;
   console.log(firsNews);
 
@@ -34,24 +38,24 @@ const MainNews = ({ news }: { news: News[] }) => {
             <p className="text-red-700 font-semibold">{firsNews.category}</p>
             <h2 className="card-title">{firsNews.title}</h2>
             <p>{firsNews.description}</p>
-            <p className="text-slate-400">{date}</p>
+            <div className="mt-2 text-xs text-neutral-600 flex">
+              <p>{date} এ {time}</p>
+            </div>
           </div>
         </div>
       </Link>
 
       <div className="grid gap-2 px-3">
-        
-          {otherNews.slice(0, 4).map((other) => (
-            <div
-              key={other.id}
-              className="card bg-base-100 
+        {otherNews.slice(0, 4).map((other) => (
+          <div
+            key={other.id}
+            className="card bg-base-100 
             border border-gray-300 px-4 py-2"
-            >
-              <p className="text-red-700 font-semibold">{firsNews.category}</p>
-              <div className="font-bold text-black">{other.title}</div>
-            </div>
-          ))}
-        
+          >
+            <p className="text-red-700 font-semibold">{firsNews.category}</p>
+            <div className="font-bold text-black">{other.title}</div>
+          </div>
+        ))}
       </div>
     </div>
   );

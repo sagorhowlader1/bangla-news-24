@@ -10,11 +10,13 @@ interface News{
 }
 
 
+
 const CategoryNews = async({params}: {params:{categoryId: string}}) => {
     const {categoryId} = await params
     const res = await fetch(`https://news-api-v2.vercel.app/api/category/${categoryId}`);
     const data = await res.json();
     const categoryNews = data.data
+
   
     return (
         <div>
@@ -23,7 +25,6 @@ const CategoryNews = async({params}: {params:{categoryId: string}}) => {
             <div className="grid grid-cols-3 gap-2 mt-4">
                 {categoryNews.map((news:News) => <NewsCard key={news.id} news={news} />)}
             </div>
-
         </div>
     );
 };
